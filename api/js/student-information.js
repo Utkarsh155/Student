@@ -119,11 +119,7 @@ function getResultData(e) {
     .then(res => res.json())
     .then(data => {
       data.forEach((element) => {
-        let array = [element.maths, element.english, element.electrical, element.computer, element.software];
-        let total = array.reduce(function (a, b) {
-          return a + b;
-        }, 0);
-        console.log(total);
+        let total = parseInt(element.maths) + parseInt(element.english) + parseInt(element.electrical) + parseInt(element.computer) + parseInt(element.software);
         result_Data.innerHTML += `<tr>
                 <td>${element.roll_no}</td>
                 <td>${element.semester}</td>
@@ -132,9 +128,9 @@ function getResultData(e) {
                 <td>${element.electrical}</td>
                 <td>${element.computer}</td>
                 <td>${element.software}</td>
-                <td>${100}</td>
-                <td>${element.maths + element.english}</td>
-                <td>${element.maths + element.english + element.electrical + element.computer + element.software * 100 / 5}</td>
+                <td>${500}</td>
+                <td>${parseInt(element.maths) + parseInt(element.english) + parseInt(element.electrical) + parseInt(element.computer) + parseInt(element.software)}</td>
+                <td>${total/5} %</td>
                 </tr> `;
       });
     });
